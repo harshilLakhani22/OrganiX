@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "270007385408",
+    "project_id": "organix-898be",
+    "storage_bucket": "organix-898be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270007385408:android:509da115e4b57ed6570ea5",
+        "android_client_info": {
+          "package_name": "com.example.organix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdoO9rxApp6xVTRCPRG07oiwhR5cUIPao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
