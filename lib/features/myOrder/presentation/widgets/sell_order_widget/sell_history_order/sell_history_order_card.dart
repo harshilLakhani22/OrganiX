@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:organix/features/myOrder/data/model/order_model.dart';
+import 'package:organix/features/myOrder/data/model/buy_order_model.dart';
+import 'package:organix/features/myOrder/data/model/sell_order_model.dart';
 
-class HistoryOrderCard extends StatelessWidget {
-  final OrderModel order;
+class SellHistoryOrderCard extends StatelessWidget {
+  final SellOrderModel order;
 
-  const HistoryOrderCard({
+  const SellHistoryOrderCard({
     super.key,
     required this.order,
   });

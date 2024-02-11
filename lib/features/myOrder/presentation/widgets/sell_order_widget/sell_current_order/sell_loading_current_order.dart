@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:organix/routes/app_routes.dart';
 
-class NoCurrentOrder extends StatelessWidget {
-  const NoCurrentOrder({super.key});
+class SellNoCurrentOrder extends StatelessWidget {
+  const SellNoCurrentOrder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class NoCurrentOrder extends StatelessWidget {
               height: 30,
             ),
             ElevatedButton(
-              onPressed: () => Get.toNamed(AppRoutes.buyJivamrut),
+              onPressed: () => Get.toNamed(AppRoutes.sellRawMaterial),
               child: Text("Make Order"),
             ),
           ],

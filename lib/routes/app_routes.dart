@@ -9,4 +9,5 @@ class AppRoutes{
   static String loginWithMobile= '/loginWithMobile';
   static String verifyCodeScreen = '/verifyCodeScreen';
   static String myProfile = '/myProfile';
+  static String aboutUs = '/aboutUs';
 }

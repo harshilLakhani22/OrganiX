@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:organix/features/about_us/pages/about_us_screen.dart';
 import 'package:organix/features/auth/presentation/pages/login_page.dart';
 import 'package:organix/features/auth/presentation/pages/login_with_mobile_number_page.dart';
 import 'package:organix/features/auth/presentation/pages/signup_page.dart';
@@ -23,5 +24,6 @@ class AppPages{
     GetPage(name: AppRoutes.loginWithMobile, page: LoginWithPhoneNumber.new),
     // GetPage(name: AppRoutes.verifyCodeScreen, page: VerifyCodeScreen.new),
     GetPage(name: AppRoutes.myProfile, page: MyProfileScreen.new),
+    GetPage(name: AppRoutes.aboutUs, page: AboutUsScreen.new),
   ];
 }

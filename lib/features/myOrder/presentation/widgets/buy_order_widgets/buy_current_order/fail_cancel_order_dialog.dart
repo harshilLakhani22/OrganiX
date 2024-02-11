@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:organix/core/presentation/widgets/rounded_button.dart';
 
-class FailCancelOrderDialog extends StatelessWidget {
-  const FailCancelOrderDialog({super.key});
+class BuyFailCancelOrderDialog extends StatelessWidget {
+  const BuyFailCancelOrderDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

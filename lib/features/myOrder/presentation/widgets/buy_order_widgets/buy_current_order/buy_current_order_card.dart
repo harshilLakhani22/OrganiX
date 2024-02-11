@@ -1,19 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
-import '../../../data/model/order_model.dart';
-
-class CurrentOrderCard extends StatelessWidget {
-  final OrderModel order;
+import '../../../../data/model/buy_order_model.dart';
+class BuyCurrentOrderCard extends StatelessWidget {
+  GetStorage box = GetStorage();
+  final BuyOrderModel order;
   final VoidCallback onCancelOrder;
 
-  const CurrentOrderCard({
+  BuyCurrentOrderCard({
     Key? key,
     required this.order,
     required this.onCancelOrder,
   }) : super(key: key);
-
+  String? getUserUid() {
+    return box.read('uid');
+  }
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -61,14 +65,14 @@ class CurrentOrderCard extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                        onCancelOrder();
+                      onCancelOrder();
                     },
                     style: ButtonStyle(
                       backgroundColor: order.isAcceptedFromAdmin
                           ? MaterialStateProperty.all(Colors.grey)
                           : MaterialStateProperty.all(const Color(0xff598216)),
                     ),
-                    child: const Text("Cancel Order"),
+                    child: order.isAcceptedFromAdmin ? Text("Order Placed") :  Text("Cancel Order"),
                   ),
                 ],
               ),
@@ -78,4 +82,5 @@ class CurrentOrderCard extends StatelessWidget {
       ),
     );
   }
+
 }

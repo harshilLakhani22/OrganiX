@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoadingCurrentOrder extends StatelessWidget {
-  const LoadingCurrentOrder({super.key});
+class BuyLoadingCurrentOrder extends StatelessWidget {
+  const BuyLoadingCurrentOrder({super.key});
 
   @override
   Widget build(BuildContext context) {

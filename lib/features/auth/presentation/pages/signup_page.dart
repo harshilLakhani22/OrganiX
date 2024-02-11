@@ -42,7 +42,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
       showToast(title: "strPasswordMatch".tr);
       return;
     }
-
     try {
       await _auth.createUserWithEmailAndPassword(
         email: emailController.text.toString(),

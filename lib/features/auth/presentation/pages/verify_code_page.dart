@@ -86,7 +86,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("strLoginWithMobileNum".tr),
-        // backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
         centerTitle: true,
       ),
       body: Container(

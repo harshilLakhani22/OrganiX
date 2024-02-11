@@ -73,6 +73,7 @@ class _LoginWithPhoneNumberState extends State<LoginWithPhoneNumber> {
       appBar: AppBar(
         title: Text("strLoginWithMobileNum".tr),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: Container(
         margin: const EdgeInsets.only(left: 25, right: 25),

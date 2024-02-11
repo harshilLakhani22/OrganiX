@@ -4,7 +4,7 @@ import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../../core/firebase_services/splash_services.dart';
-import '../../../myOrder/presentation/controller/my_order_controller.dart';
+import '../../../myOrder/presentation/controller/buy_order_page_controller.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

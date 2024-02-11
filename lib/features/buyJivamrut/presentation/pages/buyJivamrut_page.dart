@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:organix/core/methods/methods.dart';
 import 'package:organix/core/presentation/widgets/custom_textField.dart';
 import 'package:organix/features/buyJivamrut/presentation/controller/buyJivamrutController.dart';
-import 'package:organix/features/myOrder/presentation/controller/my_order_controller.dart';
+import 'package:organix/features/myOrder/presentation/controller/buy_order_page_controller.dart';
 
 class BuyJivamrutScreen extends StatefulWidget {
   const BuyJivamrutScreen({super.key});
@@ -18,21 +18,17 @@ class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
 
   final _formKey = GlobalKey<FormState>();
   // final BuyJivamrutController buyJivamrutController = Get.put(BuyJivamrutController());
-
   final BuyJivamrutController buyJivamrutController = Get.find<BuyJivamrutController>();
 
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-
       onWillPop: () async {
         FocusScope.of(context).unfocus();
         return true;
       },
       child: Scaffold(
-
-
         appBar: AppBar(
           title: Text("strOrganiX".tr),
           backgroundColor: const Color(0xff598216),
@@ -116,12 +112,9 @@ class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          // buyJivamrutController.placeOrder();
-                          buyJivamrutController.addToHistory();
+                          buyJivamrutController.addToBuyHistory();
                           Get.back();
-                          // showToast(title: 'strOrderPlacedSuccessfully'.tr);
-                          // orderSuccessSnackbar;
-                          ScaffoldMessenger.of(context).showSnackBar(orderSuccessSnackbar);
+
                         }
                       },
                       style: ElevatedButton.styleFrom(

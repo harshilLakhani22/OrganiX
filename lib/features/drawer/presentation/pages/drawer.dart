@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:organix/core/methods/methods.dart';
 import 'package:organix/features/drawer/presentation/widgets/change_languages.dart';
 import 'package:organix/features/drawer/presentation/widgets/open_url.dart';
+import 'package:organix/features/myOrder/presentation/controller/buy_order_page_controller.dart';
 import 'package:organix/routes/app_routes.dart';
 
 import '../widgets/drawer_listTile.dart';
@@ -15,6 +16,8 @@ class DrawerScreen extends StatelessWidget {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GetStorage box = GetStorage();
+
+  final BuyOrderController orderController = Get.put(BuyOrderController());
 
 
   @override
@@ -70,9 +73,7 @@ class DrawerScreen extends StatelessWidget {
             leadingIcon: Icons.headset_mic,
             title: 'strAboutUs'.tr,
             onTap: () {
-              // String uid = FirebaseAuth.instance.currentUser!.uid;
-              String uid = box.read("uid");
-              print(uid);
+              Get.toNamed(AppRoutes.aboutUs);
             },
           ),
           DrawerListTile(
@@ -88,6 +89,8 @@ class DrawerScreen extends StatelessWidget {
             onTap: () {
               _auth.signOut().then((value) {
                 Get.offAllNamed(AppRoutes.login);
+              }).then((value) {
+                orderController.clearData();
               }).onError((error, stackTrace) {
                 showToast(title: error.toString());
               });

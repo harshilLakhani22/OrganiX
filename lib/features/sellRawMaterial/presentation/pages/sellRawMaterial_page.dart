@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:organix/core/presentation/widgets/custom_textField.dart';
+import 'package:organix/features/sellRawMaterial/controller/sellRawMaterialController.dart';
 import 'package:organix/features/sellRawMaterial/presentation/widgets/sell_dropdown_widget.dart';
 
 class SellRawMaterialScreen extends StatefulWidget {
@@ -13,6 +15,9 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  final SellRawMaterialController sellRawMaterialController =
+  Get.put(SellRawMaterialController());
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
           centerTitle: true,
         ),
         body: GestureDetector(
-          onTap: (){
+          onTap: () {
             FocusScope.of(context).unfocus();
           },
           child: SingleChildScrollView(
@@ -38,42 +43,22 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    TextFormField(
-                      // controller: emailController,
-                      // keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        fillColor: Colors.grey,
-                        focusColor: Colors.grey,
-                        hintText: "strEnterName".tr,
-                        prefixIcon: const Icon(Icons.person),
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "strEnterName".tr;
-                        }
-                        return null;
-                      },
+                    CustomTextField(
+                      controller: sellRawMaterialController.nameController,
+                      keyboardType: TextInputType.name,
+                      hintText: "strEnterName".tr,
+                      validationMessage: "strEnterName".tr,
+                      prefixIcon: Icons.person,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      controller: passwordController,
+                    CustomTextField(
+                      controller: sellRawMaterialController.mobileController,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: "strMobileNumber".tr,
-                        prefixIcon: const Icon(Icons.phone),
-                      ),
-                      maxLines: 5,
-                      minLines: 1,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "strMobileNumber".tr;
-                        }
-                        return null;
-                      },
+                      hintText: "strMobileNumber".tr,
+                      validationMessage: "strMobileNumber".tr,
+                      prefixIcon: Icons.phone,
                     ),
                     const SizedBox(
                       height: 20,
@@ -86,94 +71,52 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      // controller: passwordController,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
+                    CustomTextField(controller: sellRawMaterialController
+                        .quantityController,
+                        keyboardType: TextInputType.number,
                         hintText: "strQuantity".tr,
-                        prefixIcon: const Icon(Icons.ac_unit_rounded),
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "strQuantity".tr;
-                        }
-                        return null;
-                      },
+                        validationMessage: "strQuantity".tr,
+                      prefixIcon: Icons.ac_unit_rounded,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      controller: passwordController,
+                    CustomTextField(controller: sellRawMaterialController
+                        .addLine1Controller,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: "strAddressLine1".tr,
-                        prefixIcon: const Icon(Icons.location_on),
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "strEnterAddress".tr;
-                        }
-                        return null;
-                      },
+                      hintText: "strAddressLine1".tr,
+                      validationMessage: "strEnterAddress".tr,
+                      prefixIcon: Icons.location_on,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      controller: passwordController,
+                    CustomTextField(controller: sellRawMaterialController
+                        .addLine2Controller,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: "strAddressLine2".tr,
-                        prefixIcon: const Icon(Icons.location_on),
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "strEnterAddress".tr;
-                        }
-                        return null;
-                      },
+                      hintText: "strAddressLine2".tr,
+                      validationMessage: "strEnterAddress".tr,
+                      prefixIcon: Icons.location_on,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      controller: passwordController,
+                    CustomTextField(controller: sellRawMaterialController
+                        .pincodeController,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: "strPINCode".tr,
-                        prefixIcon: const Icon(Icons.pin),
-                      ),
-                      maxLines: 5,
-                      minLines: 1,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "strPINCode".tr;
-                        }
-                        return null;
-                      },
+                      hintText: "strPINCode".tr,
+                      validationMessage: "strPINCode".tr,
+                      prefixIcon: Icons.pin,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      controller: passwordController,
+                    CustomTextField(controller: sellRawMaterialController
+                        .villageController,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: "strVillage".tr,
-                        prefixIcon: const Icon(Icons.location_city),
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "strEnterVillage".tr;
-                        }
-                        return null;
-                      },
+                      hintText: "strVillage".tr,
+                      validationMessage: "strEnterVillage".tr,
+                      prefixIcon: Icons.location_city,
                     ),
                     const SizedBox(
                       height: 25,
@@ -182,10 +125,13 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
                       width: double.infinity,
                       height: 60,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if(_formKey.currentState!.validate()){
+                            sellRawMaterialController.addToSellHistory();
+                            Get.back();
+                          }
+                        },
                         style: ElevatedButton.styleFrom(
-                          // padding: EdgeInsets.symmetric(
-                          //     horizontal: 50, vertical: 15),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),

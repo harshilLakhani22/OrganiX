@@ -8,6 +8,7 @@ import 'package:organix/core/presentation/widgets/custom_textField.dart';
 import 'package:organix/core/presentation/widgets/rounded_button.dart';
 import 'package:organix/features/auth/domain/auth_methods.dart';
 import 'package:organix/features/auth/presentation/controller/auth_controller.dart';
+import 'package:organix/features/myOrder/presentation/controller/buy_order_page_controller.dart';
 import 'package:organix/features/splashScreen/presentation/pages/splash_page.dart';
 import 'package:organix/routes/app_routes.dart';
 
@@ -23,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final BuyOrderController orderController = Get.put(BuyOrderController());
   bool loading = false;
   String uid = "";
 
@@ -46,31 +48,29 @@ class _LoginScreenState extends State<LoginScreen> {
 
       user = userCredential.user;
       if (user != null) {
-        // Fetch user data from the "userInfo" collection using uid
         DocumentSnapshot userSnapshot = await _firebaseFirestore
             .collection("userInfo")
             .doc(user!.uid)
             .get();
 
-        // Check if the document exists
         if (userSnapshot.exists) {
-          // If the document exists, update the local data
           String userName = userSnapshot['userName'];
           String userEmail = userSnapshot['email'];
-
           box.write('farmerName', userName);
           box.write('farmerEmail', userEmail);
-
+          print("Login farmerName $userName");
+          print("Login farmerEmail $userEmail");
         }
       }
-
       setState(() {
         uid = user!.uid;
         loading = false;
       });
 
       box.write('uid', uid);
+      print("Login uid $uid");
 
+      orderController.fetchCurrentOrders();
       FocusScope.of(context).unfocus();
       Future.delayed(const Duration(milliseconds: 300), () {
         Get.toNamed(AppRoutes.dashboard);
@@ -99,7 +99,6 @@ class _LoginScreenState extends State<LoginScreen> {
   // }
 
   String? getUserEmail() {
-    // Replace with your actual key used for storing the user's email in GetStorage
     return box.read('farmerEmail') ?? "AA";
   }
 
