@@ -21,7 +21,6 @@ class MyProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      // backgroundColor: Color(0xffe6f6f0),
       appBar: const MAuthAppBar(title: 'strMyProfile',),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
