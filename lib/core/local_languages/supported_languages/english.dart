@@ -1,10 +1,10 @@
 class English {
   static Map<String, String> get english => {
-    'strLogin' : 'Login',
+    'strLogin' : 'LogIn',
     'strEnterEmail' : 'Enter email',
     'strEnterPassword' : 'Enter password',
     'strDontHaveAcc' : 'Don\'t have an account?',
-    'strSignUp' : 'Sign up',
+    'strSignUp' : 'SignUp',
     'strLoginWithMobileNum' : 'Login with Mobile Number',
     'strEnter' : 'Enter',
     'strOrganiX' : 'OrganiX',
@@ -42,28 +42,27 @@ class English {
     'strFeedback' : 'Feedback',
     'strLogOut' : 'LogOut',
     'strChooseYourLanguage' : 'Choose Your Language',
-
-
     'strPhoneVerification' : 'Phone Verification',
     'strRegPhoneNum' : 'We need to register your phone without getting started!',
     'strPhone' : 'Phone',
     'strSendTheCode' : 'Send the code',
     'strVerifyPhoneNumber' : 'Verify Phone Number',
-    'strEditPhoneNum' : 'Edit Phone Number ?',
-
+    'strEditPhoneNum' : 'Edit Phone Number?',
     'strForgotPassword': 'Forgot Password?',
     'strSubmit': 'Submit',
     'strForgotPasswordDes':
     "Oops! Did you forget your password? Don't worry, we'll help you regain access to your account in no time.",
     'strResetPassword' : 'Reset Password',
-
-
     'strAboutUs1' : 'Welcome to OrganiX, your digital gateway to sustainable farming and a healthier tomorrow. At OrganiX, we\'re committed to empowering farmers and stable owners by facilitating seamless transactions for essential agricultural needs. Whether you\'re looking to purchase JIVAMRUT from your local panchayat or contribute raw materials to the panchayat for JIVAMRUT production, our app is your go-to platform.',
     'strAboutUs2' : 'Our mission goes beyond transactions; Organix is a champion of organic farming practices. By promoting the use of indigenous resources and reducing reliance on synthetic alternatives, we aim to contribute to a healthier environment. Embrace a farming lifestyle that not only nurtures your land but also minimizes land pollution, fostering sustainable agriculture.',
     'strAboutUs3' : 'Join us in cultivating a community that values organic living, respects the land, and aspires to a healthier life. Organix is not just an app; it\'s a movement towards a greener, more sustainable future. Start your journey with Organix today and be part of the revolution in organic farming',
-    '' : '',
-    '' : '',
-    '' : '',
+
+
+
+    // New
+        'strSignYouUp' : 'Let\'s Sign You Up' ,
+    'strLogYouIn' : 'Let\'s Log You In',
+    'strMyProfile' : 'My Profile',
     '' : '',
   };
 }

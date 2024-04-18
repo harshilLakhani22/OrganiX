@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:organix/core/utils/constants/sizes.dart';
 
 class DrawerListTile extends StatelessWidget {
   const DrawerListTile({
@@ -17,10 +18,27 @@ class DrawerListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title.tr),
-      leading: Icon(leadingIcon, color: color,),
-      onTap: () => onTap(),
+    return Column(
+      children: [
+        ListTile(
+          title: Text(
+            title.tr,
+            style: const TextStyle(
+                fontSize: MSizes.md, fontWeight: FontWeight.w500),
+          ),
+          leading: Icon(
+            leadingIcon,
+            color: color,
+          ),
+          onTap: () => onTap(),
+        ),
+        const Divider(
+          height: 3,
+          thickness: 0.5,
+          indent: 10,
+          endIndent: 25,
+        ),
+      ],
     );
   }
 }

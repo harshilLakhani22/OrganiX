@@ -1,12 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../data/model/buy_order_model.dart';
+
 class BuyCurrentOrderCard extends StatelessWidget {
-  GetStorage box = GetStorage();
+  final GetStorage box = GetStorage();
   final BuyOrderModel order;
   final VoidCallback onCancelOrder;
 
@@ -15,9 +15,11 @@ class BuyCurrentOrderCard extends StatelessWidget {
     required this.order,
     required this.onCancelOrder,
   }) : super(key: key);
+
   String? getUserUid() {
     return box.read('uid');
   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -72,7 +74,9 @@ class BuyCurrentOrderCard extends StatelessWidget {
                           ? MaterialStateProperty.all(Colors.grey)
                           : MaterialStateProperty.all(const Color(0xff598216)),
                     ),
-                    child: order.isAcceptedFromAdmin ? Text("Order Placed") :  Text("Cancel Order"),
+                    child: order.isAcceptedFromAdmin
+                        ? Text("Order Placed")
+                        : Text("Cancel Order"),
                   ),
                 ],
               ),
@@ -82,5 +86,4 @@ class BuyCurrentOrderCard extends StatelessWidget {
       ),
     );
   }
-
 }

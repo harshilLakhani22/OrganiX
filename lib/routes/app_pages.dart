@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:organix/features/about_us/pages/about_us_screen.dart';
-import 'package:organix/features/auth/presentation/pages/login_page.dart';
-import 'package:organix/features/auth/presentation/pages/login_with_mobile_number_page.dart';
-import 'package:organix/features/auth/presentation/pages/signup_page.dart';
+import 'package:organix/features/auth/presentation/pages/login/login_page.dart';
+import 'package:organix/features/auth/presentation/pages/login_with_mobile_number/login_with_mobile_number_page.dart';
+import 'package:organix/features/auth/presentation/pages/signup/signup_page.dart';
 import 'package:organix/features/auth/presentation/pages/verify_code_page.dart';
 import 'package:organix/features/buyJivamrut/presentation/pages/buyJivamrut_page.dart';
 import 'package:organix/features/dashboard/presentation/pages/dashboard_page.dart';

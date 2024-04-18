@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:organix/core/common/widgets/appbar/auth_appbar.dart';
 import 'package:organix/core/presentation/widgets/custom_textField.dart';
 import 'package:organix/core/presentation/widgets/rounded_button.dart';
+import 'package:organix/core/utils/constants/sizes.dart';
 import 'package:organix/features/auth/presentation/controller/auth_controller.dart';
 import 'package:organix/features/myProfile/presentation/controller/myProfileController.dart';
 import 'package:organix/features/myProfile/presentation/widgets/profilePhoto.dart';
@@ -20,11 +22,7 @@ class MyProfileScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       // backgroundColor: Color(0xffe6f6f0),
-      appBar: AppBar(
-        title: const Text("My Profile"),
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-      ),
+      appBar: const MAuthAppBar(title: 'strMyProfile',),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -35,7 +33,7 @@ class MyProfileScreen extends StatelessWidget {
             Column(
               children: [
                 InkWell(
-                  child: ProfilePhoto(),
+                  child: const ProfilePhoto(),
                   onTap: () async {
                     await myProfileController.pickProfilePhoto();
                   },
@@ -58,7 +56,7 @@ class MyProfileScreen extends StatelessWidget {
                   validationMessage: "strEnterName".tr,
                   suffixIcon: Icons.edit,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: MSizes.spaceBtwInputFields),
                 CustomTextField(
                   controller: myProfileController.emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -68,37 +66,32 @@ class MyProfileScreen extends StatelessWidget {
                   readOnly: true,
                   // onTap: null,
                 ),
-                const SizedBox(height: 20),
-                const SizedBox(
-                  height: 30,
-                ),
               ],
             ),
             const Spacer(),
-            Container(
-              child: Row(
-                children: [
-                  Expanded(
-                      child: RoundButton(
-                    title: "Cancel",
-                    onTap: () => Get.back(),
-                    textColor: Colors.black87,
-                  )),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Expanded(
+            Row(
+              children: [
+                Expanded(
                     child: RoundButton(
-                      title: "Edit",
-                      onTap: () {
-                        myProfileController.editName(
-                            myProfileController.nameController.text.trim());
-                        Get.back();
-                      },
-                    ),
+                  isBorder: true,
+                  title: "Cancel",
+                  buttonColor: Colors.transparent,
+                  onTap: () => Get.back(),
+                  textColor: Colors.black87,
+                )),
+                const SizedBox(width: MSizes.spaceBtwSections),
+                Expanded(
+                  child: RoundButton(
+                    // buttonColor: Color(0xff1C1E23),
+                    title: "Edit",
+                    onTap: () {
+                      myProfileController.editName(
+                          myProfileController.nameController.text.trim());
+                      Get.back();
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),

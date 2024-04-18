@@ -1,16 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:organix/core/common/widgets/appbar/auth_appbar.dart';
 import 'package:organix/core/presentation/widgets/rounded_button.dart';
+import 'package:organix/core/utils/constants/sizes.dart';
 import 'package:organix/routes/app_routes.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../core/methods/methods.dart';
+import '../../../../core/utils/constants/image_strings.dart';
 
 class VerifyCodeScreen extends StatefulWidget {
   const VerifyCodeScreen({required this.verificationId, super.key});
+
   // const VerifyCodeScreen({super.key});
 
   final String verificationId;
@@ -20,7 +23,6 @@ class VerifyCodeScreen extends StatefulWidget {
 }
 
 class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
-
   GetStorage box = GetStorage();
   final verificationCodeController = TextEditingController();
   bool loading = false;
@@ -47,15 +49,13 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
       } else {
         showToast(title: "Authentication failed");
       }
-
-    }  catch (e) {
+    } catch (e) {
       setState(() {
         loading = false;
       });
       showToast(title: e.toString());
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -84,11 +84,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("strLoginWithMobileNum".tr),
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-      ),
+      appBar: const MAuthAppBar(title: "strLoginWithMobileNum"),
       body: Container(
         margin: const EdgeInsets.only(left: 25, right: 25),
         alignment: Alignment.center,
@@ -96,64 +92,64 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/loginWithMobile.png',
-                width: 150,
-                height: 150,
+              /// Image Header
+              const Image(
+                image: AssetImage(MImages.imgLoginWithMobile),
+                width: 250,
+                height: 250,
               ),
-              const SizedBox(
-                height: 25,
-              ),
+              const SizedBox(height: MSizes.spaceBtwSections),
               Text(
                 "strPhoneVerification".tr,
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                    fontSize: MSizes.lg, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: MSizes.spaceBtwItems),
               Text(
                 "strRegPhoneNum".tr,
                 style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: MSizes.md,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(
-                height: 30,
-              ),
+              const SizedBox(height: MSizes.spaceBtwSections),
+
+              /// Pin put
               Pinput(
                 length: 6,
                 focusedPinTheme: focusedPinTheme,
                 submittedPinTheme: submittedPinTheme,
                 showCursor: true,
-                onChanged: (value){
+                onChanged: (value) {
                   verificationCodeController.text = value;
                   // otpCode = value;
                 },
                 onCompleted: (pin) => print(pin),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: MSizes.spaceBtwSections),
               SizedBox(
                 width: double.infinity,
-                height: 45,
+                height: 50,
                 child: RoundButton(
                   isLoading: loading,
                   title: "strVerifyPhoneNumber".tr,
                   onTap: verifyOtp,
                 ),
               ),
+              // const SizedBox(height: MSizes.spaceBtwInputFields),
               Row(
                 children: [
                   TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: Text(
-                        "strEditPhoneNum".tr,
-                        style: const TextStyle(color: Colors.black),
-                      ))
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text(
+                      "strEditPhoneNum".tr,
+                      style: const TextStyle(
+                          color: Colors.black,
+                          decoration: TextDecoration.underline),
+                    ),
+                  ),
                 ],
               ),
             ],

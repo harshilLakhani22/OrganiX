@@ -44,7 +44,6 @@ class BuyOrderController extends GetxController {
           .collection('userInfo')
           .where('uid', isEqualTo: userUid)
           .get();
-      print("SDFSDF");
       if (querySnapshot.docs.isNotEmpty) {
         print("QuerySnapshot");
         print("object");

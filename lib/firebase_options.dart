@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -52,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '270007385408',
     projectId: 'organix-898be',
     authDomain: 'organix-898be.firebaseapp.com',
+    databaseURL: 'https://organix-898be-default-rtdb.firebaseio.com',
     storageBucket: 'organix-898be.appspot.com',
     measurementId: 'G-X4E00WV895',
   );
@@ -61,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:270007385408:android:509da115e4b57ed6570ea5',
     messagingSenderId: '270007385408',
     projectId: 'organix-898be',
+    databaseURL: 'https://organix-898be-default-rtdb.firebaseio.com',
     storageBucket: 'organix-898be.appspot.com',
   );
 
@@ -69,7 +68,18 @@ class DefaultFirebaseOptions {
     appId: '1:270007385408:ios:a14072c4a4f0d21c570ea5',
     messagingSenderId: '270007385408',
     projectId: 'organix-898be',
+    databaseURL: 'https://organix-898be-default-rtdb.firebaseio.com',
     storageBucket: 'organix-898be.appspot.com',
     iosBundleId: 'com.example.organix',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyByQOH0zm0bJ4SgyXo6BW3qB3vGAHZs3Zs',
+    appId: '1:270007385408:ios:9cebf17a2112479d570ea5',
+    messagingSenderId: '270007385408',
+    projectId: 'organix-898be',
+    databaseURL: 'https://organix-898be-default-rtdb.firebaseio.com',
+    storageBucket: 'organix-898be.appspot.com',
+    iosBundleId: 'com.example.organix.RunnerTests',
   );
 }

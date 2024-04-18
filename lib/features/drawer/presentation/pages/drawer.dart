@@ -32,20 +32,23 @@ class DrawerScreen extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text(
-              formattedFarmerName,
-              style: const TextStyle(fontSize: 20),
-            ),
-            accountEmail: Text(
-              farmerEmail,
-              style: const TextStyle(fontSize: 16),
-            ),
             currentAccountPicture: CircleAvatar(
               backgroundColor: const Color.fromARGB(255, 165, 255, 137),
               child: Text(
                 formattedFarmerName.isNotEmpty ? formattedFarmerName[0] : '',
                 style: const TextStyle(fontSize: 30.0, color: Colors.blue),
               ),
+            ),
+            accountName: Padding(
+              padding: const EdgeInsets.only(top: 25),
+              child: Text(
+                formattedFarmerName,
+                style: const TextStyle(fontSize: 20),
+              ),
+            ),
+            accountEmail: Text(
+              farmerEmail,
+              style: const TextStyle(fontSize: 16),
             ),
           ),
           DrawerListTile(

@@ -18,4 +18,5 @@ class AuthController extends GetxController{
       Get.snackbar("Password reset email link is sent in your email", "Success");
     }).catchError((onError) => Get.snackbar("Error in Email Reset", "Failure"));
   }
+
 }

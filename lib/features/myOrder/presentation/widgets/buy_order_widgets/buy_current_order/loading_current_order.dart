@@ -7,10 +7,11 @@ class BuyLoadingCurrentOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Container(
+      child: SizedBox(
         height: 120,
         width: Get.width,
-        child: Center(child: CircularProgressIndicator()),
+        child: const Center(child: CircularProgressIndicator(
+        )),
       ),
     );
   }

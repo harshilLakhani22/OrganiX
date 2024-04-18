@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:organix/core/utils/constants/sizes.dart';
 import 'package:organix/features/myOrder/presentation/controller/buy_order_page_controller.dart';
 
 import '../widgets/buy_order_widgets/buy_current_order/buy_current_order_card.dart';
@@ -22,19 +23,25 @@ class BuyOrderPageScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /// Current Orders
             const Text(
               "Current Buy Orders",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-              height: 20,
+            const Divider(
+              thickness: 1,
+              indent: 10,
+              endIndent: 10,
             ),
+            const SizedBox(height: MSizes.spaceBtwItems),
+
             Obx(() {
               if (buyOrderController.isLoading.value) {
                 return const BuyLoadingCurrentOrder();
               }
               var currentOrders = buyOrderController.currentOrders
-                  .where((order) => order.isCurrentOrder && !order.isCancelFromFarmer)
+                  .where((order) =>
+                      order.isCurrentOrder && !order.isCancelFromFarmer)
                   .toList();
 
               if (currentOrders.isNotEmpty) {
@@ -75,17 +82,17 @@ class BuyOrderPageScreen extends StatelessWidget {
               var historyOrders = buyOrderController.currentOrders
                   .where((order) => !order.isCurrentOrder)
                   .toList();
-              if(historyOrders.isNotEmpty){
+              if (historyOrders.isNotEmpty) {
                 return Column(
                   children: buyOrderController.currentOrders
-                      .where((order) => !order.isCurrentOrder).map((order) {
+                      .where((order) => !order.isCurrentOrder)
+                      .map((order) {
                     return BuyHistoryOrderCard(order: order);
                   }).toList(),
                 );
-              } else{
+              } else {
                 return NoHistoryOrder();
               }
-
             })
           ],
         ),

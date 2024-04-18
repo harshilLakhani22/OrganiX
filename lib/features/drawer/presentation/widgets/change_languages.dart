@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:organix/core/local_languages/languages.dart';
+import 'package:organix/core/utils/constants/sizes.dart';
 
 void buildLanguageDialog(BuildContext context) {
   showDialog(
       context: context,
       builder: (builder) {
         return AlertDialog(
-          title: Text('strChooseYourLanguage'.tr),
+          title: Text(
+            'strChooseYourLanguage'.tr,
+            style: const TextStyle(
+              fontSize: MSizes.mdlg,
+              fontWeight: FontWeight.w700,
+            ),
+            textAlign: TextAlign.center,
+          ),
           content: SizedBox(
             width: double.maxFinite,
             child: ListView.separated(
@@ -16,7 +24,13 @@ void buildLanguageDialog(BuildContext context) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
-                    child: Text(locales[index]['name']),
+                    child: Text(
+                      locales[index]['name'],
+                      style: const TextStyle(
+                        fontSize: MSizes.md,
+                        fontWeight: FontWeight.w400
+                      ),
+                    ),
                     onTap: () {
                       updateLanguage(locales[index]['locale']);
                     },

@@ -3,12 +3,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:organix/core/common/widgets/appbar/auth_appbar.dart';
 import 'package:organix/core/methods/methods.dart';
 import 'package:organix/core/presentation/widgets/custom_textField.dart';
 import 'package:organix/core/presentation/widgets/rounded_button.dart';
 import 'package:organix/routes/app_routes.dart';
 
-import '../controller/auth_controller.dart';
+import '../../../../../core/utils/constants/sizes.dart';
+import '../../controller/auth_controller.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -32,6 +35,118 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   late User? user;
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const MAuthAppBar(title: "strSignYouUp"),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: Get.height,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: MSizes.lg),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                /// SignUp Form
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      CustomTextField(
+                        controller: nameController,
+                        keyboardType: TextInputType.name,
+                        hintText: "strEnterName".tr,
+                        prefixIcon: Icons.person,
+                        validationMessage: "strEnterName".tr,
+                      ),
+                      const SizedBox(height: MSizes.spaceBtwInputFields),
+                      CustomTextField(
+                        controller: emailController,
+                        keyboardType: TextInputType.emailAddress,
+                        hintText: "strEnterEmail".tr,
+                        prefixIcon: Icons.email_sharp,
+                        validationMessage: "strEnterEmail".tr,
+                      ),
+                      const SizedBox(height: MSizes.spaceBtwInputFields),
+                      Obx(
+                        () => CustomTextField(
+                          controller: passwordController,
+                          keyboardType: TextInputType.text,
+                          hintText: "strEnterPassword".tr,
+                          prefixIcon: Icons.lock,
+                          validationMessage: "strEnterPassword".tr,
+                          isObscureText: authController.isPasswordHidden.value,
+                          // suffixIcon: authController.isPasswordHidden.value
+                          //     ? Icons.visibility
+                          //     : Icons.visibility_off,
+                          onTap: () {
+                            authController.isPasswordHidden.value =
+                                !authController.isPasswordHidden.value;
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: MSizes.spaceBtwInputFields),
+                      Obx(
+                        () => CustomTextField(
+                          controller: confirmPasswordController,
+                          keyboardType: TextInputType.text,
+                          hintText: "strConfirmPassword".tr,
+                          prefixIcon: Icons.lock_open,
+                          validationMessage: "strEnterPassword".tr,
+                          isObscureText: authController.isPasswordHidden.value,
+                          suffixIcon: authController.isPasswordHidden.value
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          onTap: () {
+                            authController.isPasswordHidden.value =
+                                !authController.isPasswordHidden.value;
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: MSizes.spaceBtwSections * 1.5),
+
+                /// SignUp Button
+                RoundButton(
+                  title: "strSignUp".tr,
+                  isLoading: loading,
+                  onTap: () {
+                    if (_formKey.currentState!.validate()) {
+                      singUp();
+                    }
+                  },
+                ),
+                const SizedBox(height: MSizes.spaceBtwSections),
+
+                /// Go to LogIn
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("strAlreadyHaveAcc".tr),
+                    TextButton(
+                      onPressed: () {
+                        Get.offAllNamed(AppRoutes.login);
+                      },
+                      child: Text(
+                        "strLogin".tr,
+                        style: const TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.w600,
+                          fontSize: MSizes.md
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   void singUp() async {
     setState(() {
@@ -66,130 +181,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         loading = false;
       });
       Get.offNamed(AppRoutes.dashboard);
-    } catch (error){
-      showToast(title:error.toString());
+    } catch (error) {
+      showToast(title: error.toString());
       setState(() {
         loading = false;
       });
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("strSignUp".tr),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: Get.height,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      CustomTextField(
-                        controller: nameController,
-                        keyboardType: TextInputType.name,
-                        hintText: "strEnterName".tr,
-                        prefixIcon: Icons.person,
-                        validationMessage: "strEnterName".tr,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      CustomTextField(
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        hintText: "strEnterEmail".tr,
-                        prefixIcon: Icons.email_sharp,
-                        validationMessage: "strEnterEmail".tr,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Obx(
-                        () => CustomTextField(
-                          controller: passwordController,
-                          keyboardType: TextInputType.text,
-                          hintText: "strEnterPassword".tr,
-                          prefixIcon: Icons.lock,
-                          validationMessage: "strEnterPassword".tr,
-                          isObscureText: authController.isPasswordHidden.value,
-                          suffixIcon: authController.isPasswordHidden.value
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          onTap: () {
-                            authController.isPasswordHidden.value =
-                                !authController.isPasswordHidden.value;
-                          },
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Obx(
-                        () => CustomTextField(
-                          controller: confirmPasswordController,
-                          keyboardType: TextInputType.text,
-                          hintText: "strConfirmPassword".tr,
-                          prefixIcon: Icons.lock_open,
-                          validationMessage: "strEnterPassword".tr,
-                          isObscureText: authController.isPasswordHidden.value,
-                          suffixIcon: authController.isPasswordHidden.value
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          onTap: () {
-                            authController.isPasswordHidden.value =
-                                !authController.isPasswordHidden.value;
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                RoundButton(
-                  title: "strSignUp".tr,
-                  isLoading: loading,
-                  onTap: () {
-                    if (_formKey.currentState!.validate()) {
-                      singUp();
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("strAlreadyHaveAcc".tr),
-                    TextButton(
-                      onPressed: () {
-                        Get.offAllNamed(AppRoutes.login);
-                      },
-                      child: Text(
-                        "strLogin".tr,
-                        style: const TextStyle(
-                            decoration: TextDecoration.underline,),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }
