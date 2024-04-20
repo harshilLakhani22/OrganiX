@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/presentation/widgets/common_textfield.dart';
+import '../../../../core/presentation/widgets/text_fields/common_textfield.dart';
 
 class AuthController extends GetxController{
   RxBool isPasswordHidden = true.obs;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:organix/core/utils/constants/colors.dart';
 import 'package:organix/core/utils/constants/sizes.dart';
 import 'package:organix/features/myOrder/presentation/controller/buy_order_page_controller.dart';
 
@@ -24,17 +25,18 @@ class BuyOrderPageScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// Current Orders
-            const Text(
-              "Current Buy Orders",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Text(
+              "strCurrentBuyOrders".tr,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const Divider(
               thickness: 1,
-              indent: 10,
+              indent: 2,
               endIndent: 10,
             ),
             const SizedBox(height: MSizes.spaceBtwItems),
 
+            /// Curr Buy Order
             Obx(() {
               if (buyOrderController.isLoading.value) {
                 return const BuyLoadingCurrentOrder();
@@ -56,28 +58,27 @@ class BuyOrderPageScreen extends StatelessWidget {
                   }).toList(),
                 );
               } else {
-                return BuyNoCurrentOrder();
+                return const BuyNoCurrentOrder();
               }
             }),
-            const SizedBox(
-              height: 10,
+
+            const SizedBox(height: MSizes.spaceBtwSections),
+            const Divider(thickness: 5, color: MColors.buttonDisabled,),
+            const SizedBox(height: MSizes.spaceBtwSections),
+
+             Text(
+              "strBuyingHistory".tr,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const Divider(
-              thickness: 5,
+              thickness: 1,
+              indent: 2,
+              endIndent: 10,
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              "Buying History",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: MSizes.spaceBtwItems),
             Obx(() {
               if (buyOrderController.isLoading.value) {
-                return LoadingHistoryOrder(); // Show loading indicator
+                return const LoadingHistoryOrder(); // Show loading indicator
               }
               var historyOrders = buyOrderController.currentOrders
                   .where((order) => !order.isCurrentOrder)
@@ -91,7 +92,7 @@ class BuyOrderPageScreen extends StatelessWidget {
                   }).toList(),
                 );
               } else {
-                return NoHistoryOrder();
+                return const NoHistoryOrder();
               }
             })
           ],

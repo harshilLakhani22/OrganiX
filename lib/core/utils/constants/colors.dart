@@ -8,8 +8,9 @@ class MColors {
 
   // App Basic Colors
   static const Color primary = Color(0xff598216);
-  static const Color secondary = Color(0xff688656);
-  static const Color accent = Color(0xFFb0c7ff);
+  static const Color secondary = Color(0xff7a9b45);
+  static const Color accent = Color(0xff3e5b0f);
+  static const Color buttonColor = Color(0xff142814);
 
   // Text Colors
   static const Color textPrimary = Color(0xFF333333);

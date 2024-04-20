@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:organix/core/presentation/widgets/custom_textField.dart';
+import 'package:organix/core/presentation/widgets/text_fields/custom_textField.dart';
+import 'package:organix/core/utils/constants/sizes.dart';
 import 'package:organix/features/sellRawMaterial/controller/sellRawMaterialController.dart';
 import 'package:organix/features/sellRawMaterial/presentation/widgets/sell_dropdown_widget.dart';
+
+import '../../../../core/utils/constants/colors.dart';
 
 class SellRawMaterialScreen extends StatefulWidget {
   const SellRawMaterialScreen({super.key});
@@ -17,7 +20,7 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
   final passwordController = TextEditingController();
 
   final SellRawMaterialController sellRawMaterialController =
-  Get.put(SellRawMaterialController());
+      Get.put(SellRawMaterialController());
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +53,7 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
                       validationMessage: "strEnterName".tr,
                       prefixIcon: Icons.person,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    const SizedBox(height: MSizes.spaceBtwInputFields),
                     CustomTextField(
                       controller: sellRawMaterialController.mobileController,
                       keyboardType: TextInputType.number,
@@ -60,74 +61,61 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
                       validationMessage: "strMobileNumber".tr,
                       prefixIcon: Icons.phone,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Container(
+                    const SizedBox(height: MSizes.spaceBtwInputFields),
+                    SizedBox(
                       width: double.infinity,
                       height: 60,
-                      child: const DropDownMenuWidget(),
+                      child: SellDropDownMenu(controller : sellRawMaterialController),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(controller: sellRawMaterialController
-                        .quantityController,
-                        keyboardType: TextInputType.number,
-                        hintText: "strQuantity".tr,
-                        validationMessage: "strQuantity".tr,
+
+                    const SizedBox(height: MSizes.spaceBtwInputFields),
+                    CustomTextField(
+                      controller: sellRawMaterialController.quantityController,
+                      keyboardType: TextInputType.number,
+                      hintText: "strQuantity".tr,
+                      validationMessage: "strQuantity".tr,
                       prefixIcon: Icons.ac_unit_rounded,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(controller: sellRawMaterialController
-                        .addLine1Controller,
+                    const SizedBox(height: MSizes.spaceBtwInputFields),
+                    CustomTextField(
+                      controller: sellRawMaterialController.addLine1Controller,
                       keyboardType: TextInputType.text,
                       hintText: "strAddressLine1".tr,
                       validationMessage: "strEnterAddress".tr,
                       prefixIcon: Icons.location_on,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(controller: sellRawMaterialController
-                        .addLine2Controller,
+                    const SizedBox(height: MSizes.spaceBtwInputFields),
+                    CustomTextField(
+                      controller: sellRawMaterialController.addLine2Controller,
                       keyboardType: TextInputType.text,
                       hintText: "strAddressLine2".tr,
                       validationMessage: "strEnterAddress".tr,
                       prefixIcon: Icons.location_on,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(controller: sellRawMaterialController
-                        .pincodeController,
+                    const SizedBox(height: MSizes.spaceBtwInputFields),
+                    CustomTextField(
+                      controller: sellRawMaterialController.pincodeController,
                       keyboardType: TextInputType.number,
                       hintText: "strPINCode".tr,
                       validationMessage: "strPINCode".tr,
                       prefixIcon: Icons.pin,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(controller: sellRawMaterialController
-                        .villageController,
+                    const SizedBox(height: MSizes.spaceBtwInputFields),
+                    CustomTextField(
+                      controller: sellRawMaterialController.villageController,
                       keyboardType: TextInputType.text,
                       hintText: "strVillage".tr,
                       validationMessage: "strEnterVillage".tr,
                       prefixIcon: Icons.location_city,
                     ),
-                    const SizedBox(
-                      height: 25,
-                    ),
+                    const SizedBox(height: MSizes.spaceBtwSections),
                     SizedBox(
                       width: double.infinity,
                       height: 60,
                       child: ElevatedButton(
                         onPressed: () {
-                          if(_formKey.currentState!.validate()){
-                            sellRawMaterialController.addToSellHistory();
+                          if (_formKey.currentState!.validate()) {
+                            sellRawMaterialController.addToSellHistory(sellRawMaterialController.rawMaterialType);
                             Get.back();
                           }
                         },
@@ -135,10 +123,11 @@ class _SellRawMaterialScreenState extends State<SellRawMaterialScreen> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
-                            backgroundColor: const Color(0xff688656)),
+                            backgroundColor:  MColors.primary,
+                        ),
                         child: Text(
                           "strSellMaterial".tr,
-                          style: const TextStyle(fontSize: 20),
+                          style: const TextStyle(fontSize: MSizes.mdlg, color: Colors.white),
                         ),
                       ),
                     ),

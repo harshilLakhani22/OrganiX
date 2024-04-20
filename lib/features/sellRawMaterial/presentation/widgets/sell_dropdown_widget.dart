@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class DropDownMenuWidget extends StatefulWidget {
-  const DropDownMenuWidget({super.key});
+import '../../controller/sellRawMaterialController.dart';
+
+class SellDropDownMenu extends StatefulWidget {
+  const SellDropDownMenu({super.key, required this.controller});
+
+  final SellRawMaterialController controller;
+
 
   @override
-  State<DropDownMenuWidget> createState() => _DropDownMenuWidgetState();
+  State<SellDropDownMenu> createState() => _SellDropDownMenuState();
 }
 
-class _DropDownMenuWidgetState extends State<DropDownMenuWidget> {
+class _SellDropDownMenuState extends State<SellDropDownMenu> {
   String dropdownvalue = 'strAnimalDung'.tr;
 
   // List of items in our dropdown menu
@@ -36,6 +41,8 @@ class _DropDownMenuWidgetState extends State<DropDownMenuWidget> {
           setState(() {
             dropdownvalue = newValue!;
           });
+
+          widget.controller.setRawMaterialType(dropdownvalue); // Update controller's rawMaterialType
         },
       ),
     );

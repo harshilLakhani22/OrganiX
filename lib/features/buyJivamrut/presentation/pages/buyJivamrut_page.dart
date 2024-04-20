@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:organix/core/methods/methods.dart';
-import 'package:organix/core/presentation/widgets/custom_textField.dart';
+import 'package:organix/core/common/widgets/appbar/auth_appbar.dart';
+import 'package:organix/core/presentation/widgets/text_fields/custom_textField.dart';
+import 'package:organix/core/utils/constants/colors.dart';
+import 'package:organix/core/utils/constants/sizes.dart';
 import 'package:organix/features/buyJivamrut/presentation/controller/buyJivamrutController.dart';
-import 'package:organix/features/myOrder/presentation/controller/buy_order_page_controller.dart';
 
 class BuyJivamrutScreen extends StatefulWidget {
   const BuyJivamrutScreen({super.key});
-
 
   @override
   State<BuyJivamrutScreen> createState() => _BuyJivamrutScreenState();
 }
 
 class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
-
   final _formKey = GlobalKey<FormState>();
-  // final BuyJivamrutController buyJivamrutController = Get.put(BuyJivamrutController());
-  final BuyJivamrutController buyJivamrutController = Get.find<BuyJivamrutController>();
 
+  // final BuyJivamrutController buyJivamrutController = Get.put(BuyJivamrutController());
+  final BuyJivamrutController buyJivamrutController =
+      Get.find<BuyJivamrutController>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +28,9 @@ class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
         return true;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("strOrganiX".tr),
-          backgroundColor: const Color(0xff598216),
-          centerTitle: true,
+        appBar: const MAuthAppBar(
+          title: 'strBuyJivamrut',
+          showBackArrow: true,
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -41,6 +39,7 @@ class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
               key: _formKey,
               child: Column(
                 children: [
+                  const SizedBox(height: MSizes.spaceBtwInputFields),
                   CustomTextField(
                     controller: buyJivamrutController.nameController,
                     keyboardType: TextInputType.name,
@@ -48,9 +47,7 @@ class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
                     prefixIcon: Icons.person,
                     validationMessage: "strEnterName".tr,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: MSizes.spaceBtwInputFields),
                   CustomTextField(
                     controller: buyJivamrutController.mobileController,
                     keyboardType: TextInputType.number,
@@ -58,9 +55,7 @@ class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
                     prefixIcon: Icons.phone,
                     validationMessage: "strMobileNumber".tr,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: MSizes.spaceBtwInputFields),
                   CustomTextField(
                     controller: buyJivamrutController.quantityController,
                     keyboardType: TextInputType.number,
@@ -68,44 +63,39 @@ class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
                     prefixIcon: Icons.ac_unit_rounded,
                     validationMessage: "strQuantity".tr,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: MSizes.spaceBtwInputFields),
                   CustomTextField(
                     controller: buyJivamrutController.addLine1Controller,
                     keyboardType: TextInputType.text,
                     hintText: "strAddressLine1".tr,
                     prefixIcon: Icons.location_on,
-                    validationMessage: "strEnterAddress".tr,),
-                  const SizedBox(
-                    height: 20,
+                    validationMessage: "strEnterAddress".tr,
                   ),
+                  const SizedBox(height: MSizes.spaceBtwInputFields),
                   CustomTextField(
                     controller: buyJivamrutController.addLine2Controller,
                     keyboardType: TextInputType.text,
                     hintText: "strAddressLine2".tr,
                     prefixIcon: Icons.location_on,
-                    validationMessage: "strEnterAddress".tr,),
-                  const SizedBox(
-                    height: 20,
+                    validationMessage: "strEnterAddress".tr,
                   ),
+                  const SizedBox(height: MSizes.spaceBtwInputFields),
                   CustomTextField(
                     controller: buyJivamrutController.pincodeController,
                     keyboardType: TextInputType.number,
                     hintText: "strPINCode".tr,
                     prefixIcon: Icons.pin,
-                    validationMessage: "strPINCode".tr,),
-                  const SizedBox(
-                    height: 20,
+                    validationMessage: "strPINCode".tr,
                   ),
-                  CustomTextField(controller: buyJivamrutController.villageController,
-                      keyboardType: TextInputType.text,
-                      hintText: "strVillage".tr,
-                      prefixIcon: Icons.location_city,
-                      validationMessage: "strEnterVillage".tr,),
-                  const SizedBox(
-                    height: 60,
+                  const SizedBox(height: MSizes.spaceBtwInputFields),
+                  CustomTextField(
+                    controller: buyJivamrutController.villageController,
+                    keyboardType: TextInputType.text,
+                    hintText: "strVillage".tr,
+                    prefixIcon: Icons.location_city,
+                    validationMessage: "strEnterVillage".tr,
                   ),
+                  const SizedBox(height: MSizes.spaceBtwSections),
                   SizedBox(
                     width: double.infinity,
                     height: 60,
@@ -114,17 +104,17 @@ class _BuyJivamrutScreenState extends State<BuyJivamrutScreen> {
                         if (_formKey.currentState!.validate()) {
                           buyJivamrutController.addToBuyHistory();
                           Get.back();
-
                         }
                       },
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          backgroundColor: const Color(0xff688656)),
+                          backgroundColor: MColors.accent,
+                      ),
                       child: Text(
                         "strPlaceOrder".tr,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: MSizes.mdlg, color: Colors.white),
                       ),
                     ),
                   ),

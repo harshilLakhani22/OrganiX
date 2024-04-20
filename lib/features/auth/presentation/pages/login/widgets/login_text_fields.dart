@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../../core/presentation/widgets/custom_textField.dart';
+import '../../../../../../core/presentation/widgets/text_fields/custom_textField.dart';
 import '../../../../../../core/utils/constants/sizes.dart';
 import '../../../controller/auth_controller.dart';
 

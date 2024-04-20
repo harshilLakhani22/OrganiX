@@ -6,10 +6,10 @@ class OrderPageController extends GetxController with GetSingleTickerProviderSta
 
   final List<Tab> myTabs = <Tab>[
     Tab(
-      text: "Buy Orders",
+      text: "strBuyOrders".tr,
     ),
     Tab(
-      text: "Sell Orders",
+      text: "strSellOrders".tr,
     )
   ];
 

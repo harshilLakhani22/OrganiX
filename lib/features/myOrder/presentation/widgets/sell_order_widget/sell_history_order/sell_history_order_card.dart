@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:organix/core/utils/constants/image_strings.dart';
 import 'package:organix/features/myOrder/data/model/buy_order_model.dart';
 import 'package:organix/features/myOrder/data/model/sell_order_model.dart';
+
+import '../../../../../../core/utils/constants/sizes.dart';
 
 class SellHistoryOrderCard extends StatelessWidget {
   final SellOrderModel order;
@@ -18,7 +21,7 @@ class SellHistoryOrderCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4.0),
         child: SizedBox(
-          height: 80,
+          height: 90,
           width: Get.width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -49,18 +52,20 @@ class SellHistoryOrderCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Jivamrut",
+                    Text(
+                      "strJivamrut".tr,
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                     ),
-                    Text("Quantity :- ${order.quantity} kg"),
-                    Text("Order Date :- ${DateFormat.yMd().format(order.orderDate)}"),
+                    const SizedBox(height: MSizes.xs),
+                    Text("${"strQuantity".tr} :- ${order.quantity} kg"),
+                    Text("${'strDate'.tr} :- ${DateFormat.yMd().format(order.orderDate)}"),
                   ],
                 ),
               ),
               Expanded(
                 flex: 1,
-                child: Image.asset("assets/tickmark_symbol.jpeg"),
+                child: Image.asset(MImages.imgGreenTick),
+                // child: AssetImage(MImages.imgGreenTick),
               ),
             ],
           ),

@@ -48,5 +48,22 @@ class Gujarati {
     'strSendTheCode': 'કોડ મોકલો',
     'strVerifyPhoneNumber': 'ફોન નંબર ચકાસો',
     'strEditPhoneNum': 'ફોન નંબર સંપાદિત કરો ?',
+
+    // New
+    'strSignYouUp': 'ચાલો તમને સાઇન અપ કરીએ',
+    'strLogYouIn': 'ચાલો તમને લોગ ઇન કરીએ',
+    'strJivamrut': 'જીવામૃત',
+    'strDate': 'તારીખ',
+    'strBuyJivamrut': 'જીવામૃત ખરીદો',
+    'strCurrentSellOrders': 'વર્તમાન વેચાણ ઓર્ડર્સ',
+    'strCurrentBuyOrders': 'વર્તમાન ખરીદી ઓર્ડર્સ',
+    'strSellingHistory': 'વેચાણ ઇતિહાસ',
+    'strBuyingHistory': 'ખરીદી ઇતિહાસ',
+    'strOrderPlaced': 'ઓર્ડર સ્થાપિત કર્યો',
+    'strCancelOrder': 'ઓર્ડર રદ કરો',
+    'strYourOrders': 'તમારા ઓર્ડર્સ',
+    'strBuyOrders': 'ખરીદો ઓર્ડર્સ',
+    'strSellOrders': 'વેચાણ ઓર્ડર્સ',
+
   };
 }

@@ -62,7 +62,18 @@ class English {
     // New
         'strSignYouUp' : 'Let\'s Sign You Up' ,
     'strLogYouIn' : 'Let\'s Log You In',
-    'strMyProfile' : 'My Profile',
+    'strJivamrut' : 'Jivamrut',
+    'strDate' : 'Date',
+    'strBuyJivamrut' : 'Buy Jivamrut',
+    'strCurrentSellOrders' : 'Current Sell Orders',
+    'strCurrentBuyOrders' : 'Current Buy Orders',
+    'strSellingHistory' : 'Selling History',
+    'strBuyingHistory' : 'Buying History',
+    'strOrderPlaced' : 'Order Placed',
+    'strCancelOrder' : 'Cancel Order',
+    'strYourOrders' : 'Your Orders',
+    'strBuyOrders' : 'Buy Orders',
+    'strSellOrders' : 'Sell Orders',
     '' : '',
   };
 }

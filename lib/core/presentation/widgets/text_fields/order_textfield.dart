@@ -1,19 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatefulWidget {
-  final TextEditingController controller;
-  final TextInputType keyboardType;
-  final String hintText;
-  final IconData? prefixIcon;
-  final IconData? suffixIcon;
-  final Function()? onTap;
-  final int maxLines;
-  final int minLines;
-  final String validationMessage;
-  final bool isObscureText;
-  final bool readOnly;
-
-  const CustomTextField({
+class OrderTextField extends StatefulWidget {
+  const OrderTextField({
     super.key,
     required this.controller,
     required this.keyboardType,
@@ -28,18 +16,30 @@ class CustomTextField extends StatefulWidget {
     this.isObscureText = false,
   });
 
+  final TextEditingController controller;
+  final TextInputType keyboardType;
+  final String hintText;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final Function()? onTap;
+  final int maxLines;
+  final int minLines;
+  final String validationMessage;
+  final bool isObscureText;
+  final bool readOnly;
+
   @override
-  State<CustomTextField> createState() => _CustomTextFieldState();
+  State<OrderTextField> createState() => _OrderTextFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class _OrderTextFieldState extends State<OrderTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        border: OutlineInputBorder(),
         hintText: widget.hintText,
         prefixIcon: Icon(widget.prefixIcon),
         suffixIcon: InkWell(

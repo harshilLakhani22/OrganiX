@@ -4,6 +4,7 @@ import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../../core/firebase_services/splash_services.dart';
+import '../../../../core/utils/constants/image_strings.dart';
 import '../../../myOrder/presentation/controller/buy_order_page_controller.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -33,7 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return SizedBox(
       height: Get.height,
       child: const Image(
-        image: AssetImage('assets/splash_screen2.jpg'),
+        image: AssetImage(MImages.imgSplashScreen,),
+        fit: BoxFit.fill,
       ),
     );
   }

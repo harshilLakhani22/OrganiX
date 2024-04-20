@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:organix/core/common/widgets/appbar/auth_appbar.dart';
-import 'package:organix/core/presentation/widgets/custom_textField.dart';
+import 'package:organix/core/presentation/widgets/text_fields/custom_textField.dart';
 import 'package:organix/core/presentation/widgets/rounded_button.dart';
 import 'package:organix/core/utils/constants/sizes.dart';
 import 'package:organix/features/auth/presentation/controller/auth_controller.dart';

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:organix/core/utils/constants/sizes.dart';
@@ -18,11 +17,12 @@ class MForgotPassword extends StatelessWidget {
         onPressed: () => openForgetPasswordBottomSheet(),
         child: Text(
           'strForgotPassword'.tr,
-          style:
-          const TextStyle(decoration: TextDecoration.underline, fontSize: MSizes.md),
+          style: const TextStyle(
+            decoration: TextDecoration.underline,
+            fontSize: MSizes.md,
+          ),
         ),
       ),
     );
   }
 }
-

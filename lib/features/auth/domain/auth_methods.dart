@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:organix/core/presentation/widgets/cancel_button.dart';
-import 'package:organix/core/presentation/widgets/custom_textField.dart';
+import 'package:organix/core/presentation/widgets/text_fields/custom_textField.dart';
 
 import '../../../core/presentation/widgets/action_buttons.dart';
 import '../presentation/controller/auth_controller.dart';
@@ -53,6 +53,7 @@ void openForgetPasswordBottomSheet({String? email}) {
             onPressed:()=> authController.sendPasswordResetEmail(
               authController.forgotPasswordController.text,
             ),
+
             title: 'strSubmit'.tr,
             isLarge: true,
           ),
