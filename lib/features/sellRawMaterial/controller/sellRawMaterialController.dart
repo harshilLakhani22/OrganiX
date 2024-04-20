@@ -21,6 +21,7 @@ class SellRawMaterialController extends GetxController {
 
   void setRawMaterialType(String type) {
     rawMaterialType = type;
+
     update(); // Update the UI to reflect the selected type
   }
 
