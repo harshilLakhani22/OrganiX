@@ -1,17 +1,19 @@
 # organix
 
-A new Flutter project.
+Real world problem solution for Navsari Distric.
 
-## Getting Started
+Mobile Application for farmers to buy organic fertilizer direct from the Plants.
+Also sell their raw materials to plants.
 
-This project is a starting point for a Flutter application.
+In addition, basic but essential functionality like Auth, OTP verification,
+localization (English, Gujarati, Hindi), forgot Password, feedback to plants are present.
 
-A few resources to get you started if this is your first Flutter project:
+Farmer can see their buying and selling history in order section from the drawer.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Order Management is handled as per the PROBLEM STATEMENT and operations are performed 
+from the admin panel which will reflect on the mobile application.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+For Database and Authentication FIREBASE is used. For feedback AirTable is used.
+
+(For overview of application interface, Open ui_overview.jpeg)
 # OrganiX
