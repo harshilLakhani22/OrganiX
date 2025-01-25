@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
+import 'package:organix/core/utils/constants/image_strings.dart';
+import 'package:organix/core/utils/constants/sizes.dart';
 
 import '../../../../data/model/buy_order_model.dart';
 
@@ -27,44 +29,39 @@ class BuyCurrentOrderCard extends StatelessWidget {
       child: Card(
         child: Row(
           children: [
+            /// Image
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/organic1.jpeg"),
+                    image: AssetImage(MImages.imgOrganic1),
                     fit: BoxFit.fill,
                   ),
                   borderRadius: BorderRadius.all(
-                    Radius.circular(7),
+                    Radius.circular(MSizes.borderRadiusMd),
                   ),
                 ),
-                height: 120,
+                height: 130,
                 margin: const EdgeInsets.all(10),
               ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
+            const SizedBox(width: MSizes.sm),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Jivamrut",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  Text(
+                    "strJivamrut".tr,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  const SizedBox(
-                    height: 7,
-                  ),
-                  Text("Quantity :- ${order.quantity} kg"),
-                  const SizedBox(
-                    height: 7,
-                  ),
-                  Text("Date :- ${DateFormat.yMd().format(order.orderDate)}"),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  const SizedBox(height: MSizes.xs),
+                  Text("${"strQuantity".tr} :- ${order.quantity} kg"),
+                  const SizedBox(height: MSizes.xs),
+                  Text(
+                      "${'strDate'.tr} :- ${DateFormat.yMd().format(order.orderDate)}"),
+                  const SizedBox(height: MSizes.sm),
                   ElevatedButton(
                     onPressed: () {
                       onCancelOrder();
@@ -75,8 +72,8 @@ class BuyCurrentOrderCard extends StatelessWidget {
                           : MaterialStateProperty.all(const Color(0xff598216)),
                     ),
                     child: order.isAcceptedFromAdmin
-                        ? Text("Order Placed")
-                        : Text("Cancel Order"),
+                        ? Text("strOrderPlaced".tr, style: const TextStyle(color: Colors.white),)
+                        : Text("strCancelOrder".tr, style: const TextStyle(color: Colors.white),),
                   ),
                 ],
               ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:organix/core/local_languages/languages.dart';
+import 'package:organix/core/utils/theme/theme.dart';
 import 'package:organix/features/myOrder/presentation/controller/buy_order_page_controller.dart';
 import 'package:organix/features/splashScreen/presentation/pages/splash_page.dart';
 import 'package:organix/firebase_options.dart';
@@ -35,11 +36,7 @@ class MyApp extends StatelessWidget {
     // appController.initializeControllers();
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        // useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff598216)),
-        // backgroundColor: const Color(0xffe6f6f0),
-      ),
+      theme: MAppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       getPages: AppPages.list,
       initialRoute: AppRoutes.initialRoute,

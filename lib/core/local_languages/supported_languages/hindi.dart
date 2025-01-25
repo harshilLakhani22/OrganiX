@@ -48,5 +48,24 @@ class Hindi {
     'strSendTheCode': 'कोड भेजें',
     'strVerifyPhoneNumber': 'फ़ोन नंबर सत्यापित करें',
     'strEditPhoneNum': 'फ़ोन नंबर संपादित करें ?',
+
+
+    // New
+    'strSignYouUp': 'आइए आपको साइन अप करें',
+    'strLogYouIn': 'आइए आपको लॉग इन करें',
+    'strJivamrut': 'जीवामृत',
+    'strDate': 'तारीख',
+    'strBuyJivamrut': 'जीवामृत खरीदें',
+    'strCurrentSellOrders': 'वर्तमान बेचने के आदेश',
+    'strCurrentBuyOrders': 'वर्तमान खरीदने के आदेश',
+    'strSellingHistory': 'बेचने का इतिहास',
+    'strBuyingHistory': 'खरीदने का इतिहास',
+    'strOrderPlaced': 'आदेश दिया गया',
+    'strCancelOrder': 'आदेश रद्द करें',
+    'strYourOrders': 'आपके आदेश',
+    'strBuyOrders': 'खरीद आदेश',
+    'strSellOrders': 'बेचने के आदेश',
+
+
   };
 }

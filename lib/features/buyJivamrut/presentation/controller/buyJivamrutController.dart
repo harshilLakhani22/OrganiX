@@ -18,7 +18,7 @@ class BuyJivamrutController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    nameController.text = box.read('farmerName');
+    // nameController.text = box.read('farmerName');
   }
 
   TextEditingController nameController = TextEditingController();

@@ -52,7 +52,7 @@ class ActionButton extends StatelessWidget {
           ? Text(
         title!,
         style: textStyle ??
-            const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+            const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.white),
       )
           : Image.asset(
         titleImage!,

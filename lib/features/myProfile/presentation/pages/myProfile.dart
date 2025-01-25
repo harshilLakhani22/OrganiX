@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:organix/core/common/widgets/appbar/auth_appbar.dart';
-import 'package:organix/core/presentation/widgets/custom_textField.dart';
+import 'package:organix/core/presentation/widgets/text_fields/custom_textField.dart';
 import 'package:organix/core/presentation/widgets/rounded_button.dart';
 import 'package:organix/core/utils/constants/sizes.dart';
 import 'package:organix/features/auth/presentation/controller/auth_controller.dart';
@@ -15,8 +15,6 @@ class MyProfileScreen extends StatelessWidget {
       Get.put(MyProfileController());
   final AuthController authController = Get.put(AuthController());
 
-  // final MyProfileController myProfileController = Get.find<MyProfileController>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +24,6 @@ class MyProfileScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          // crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
             Column(

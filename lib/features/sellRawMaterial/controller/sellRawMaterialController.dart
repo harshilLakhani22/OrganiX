@@ -21,10 +21,11 @@ class SellRawMaterialController extends GetxController {
 
   void setRawMaterialType(String type) {
     rawMaterialType = type;
+
     update(); // Update the UI to reflect the selected type
   }
 
-  void addToSellHistory() async {
+  void addToSellHistory(String rawMaterialType) async {
     String name = nameController.text.trim();
     String mobile = mobileController.text.trim();
     String quantity = quantityController.text.trim();
