@@ -16,7 +16,6 @@ class MyProfileController extends GetxController {
   TextEditingController mobiController = TextEditingController();
 
   MyProfileController() {
-    // Initialize values in the constructor or another method
     farmerName = box.read('farmerName');
     farmerEmail = box.read('farmerEmail');
   }
@@ -24,7 +23,6 @@ class MyProfileController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // Accessing the values and assigning defaults if null
     farmerName ??= '';
     farmerEmail ??= '';
     nameController.text = box.read('farmerName');
