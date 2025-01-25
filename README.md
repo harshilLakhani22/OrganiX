@@ -1,6 +1,6 @@
 # organix
 
-Real world problem solution for Navsari Distric.
+Real world problem solution for Navsari District.
 
 Mobile Application for farmers to buy organic fertilizer direct from the Plants.
 Also sell their raw materials to plants.
